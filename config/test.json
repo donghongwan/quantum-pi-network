@@ -1,0 +1,25 @@
+{
+    "network": {
+        "name": "rinkeby",
+        "url": "https://rinkeby.infura.io/v3/YOUR_INFURA_PROJECT_ID",
+        "chainId": 4
+    },
+    "contracts": {
+        "Identity": "0xYourIdentityContractAddress",
+        "CrossChain": "0xYourCrossChainContractAddress",
+        "NFT": "0xYourNFTContractAddress"
+    },
+    "settings": {
+        "gasLimit": 3000000,
+        "gasPrice": "10000000000", // 10 Gwei
+        "enableLogging": true,
+        "logLevel": "info",
+        "enableTestCoverage": true
+    },
+    "features": {
+        "enableMockServices": true,
+        "mockServiceUrl": "http://localhost:3000",
+        "enableAutomatedTesting": true,
+        "testFramework": "mocha"
+    }
+}
