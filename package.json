@@ -1,0 +1,23 @@
+{
+  "name": "quantum-pi-network",
+  "version": "1.0.0",
+  "description": "A cutting-edge blockchain project aimed at launching the Quantum Pi mainnet, featuring Pi Coin as a stable digital currency valued at $314.159.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/main/index.js",
+    "test": "jest",
+    "deploy": "node scripts/de ploy.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "web3": "^1.5.0",
+    "dotenv": "^8.2.0",
+    "quantum-sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "jest": "^26.6.0",
+    "eslint": "^7.11.0"
+  },
+  "author": "KOSASIH",
+  "license": "MIT and PiOS"
+}
