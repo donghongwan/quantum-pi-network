@@ -1,0 +1,30 @@
+{
+    "network": {
+        "name": "mainnet",
+        "url": "https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID",
+        "chainId": 1
+    },
+    "contracts": {
+        "Identity": "0xYourIdentityContractAddress",
+        "CrossChain": "0xYourCrossChainContractAddress",
+        "NFT": "0xYourNFTContractAddress"
+    },
+    "settings": {
+        "gasLimit": 3000000,
+        "gasPrice": "20000000000", // 20 Gwei
+        "enableLogging": false,
+        "logLevel": "error",
+        "enableMonitoring": true,
+        "monitoringServiceUrl": "https://monitoring.yourservice.com"
+    },
+    "security": {
+        "enableRateLimiting": true,
+        "maxRequestsPerMinute": 100,
+        "enableTwoFactorAuth": true,
+        "authServiceUrl": "https://auth.yourservice.com"
+    },
+    "features": {
+        "enableDynamicFees": true,
+        "enableTransactionBatching": true
+    }
+}
