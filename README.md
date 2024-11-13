@@ -68,6 +68,22 @@
 [![Global Financial Innovation Network](https://img.shields.io/badge/Global%20Financial%20Innovation%20Network-Member-00BFAE?style=for-the-badge&logo=innovation&logoColor=white)](https://www.fca.org.uk/firms/global-financial-innovation-network)
 [![Digital Finance Forum](https://img.shields.io/badge/Digital%20Finance%20Forum-Member-0072B8?style=for-the-badge&logo=finance&logoColor=white)](https://www.digitalfinanceforum.org/)
 [![Fintech Innovation Lab](https://img.shields.io/badge/Fintech%20Innovation%20Lab-Member-00A3E0?style=for-the-badge&logo=innovation&logoColor=white)](https://www.fintechinnovationlab.com/)
+[![Financial Technology Association](https://img.shields.io/badge/Financial%20Technology%20Association-Member-00BFAE?style=for-the-badge&logo=money&logoColor=white)](https://www.ftassociation.org/)
+[![Crypto Valley Association](https://img.shields.io/badge/Crypto%20Valley%20Association-Member-4B8BBE?style=for-the-badge&logo=bitcoin&logoColor=white)](https://cryptovalley.swiss/)
+[![Fintech Australia](https://img.shields.io/badge/Fintech%20Australia-Member-0072B8?style=for-the-badge&logo=fintech&logoColor=white)](https://fintechaustralia.org.au/)
+[![UK Finance](https://img.shields.io/badge/UK%20Finance-Member-00A3E0?style=for-the-badge&logo=bank&logoColor=white)](https://www.ukfinance.org.uk/)
+[![Singapore FinTech Association](https://img.shields.io/badge/Singapore%20FinTech%20Association-Member-00BFAE?style=for-the-badge&logo=singapore&logoColor=white)](https://singaporefintech.org/)
+[![Fintech Global](https://img.shields.io/badge/Fintech%20Global-Member-4B8BBE?style=for-the-badge&logo=global&logoColor=white)](https://fintech.global/)
+[![Blockchain for Europe](https://img.shields.io/badge/Blockchain%20for%20Europe-Member-0072B8?style=for-the-badge&logo=blockchain&logoColor=white)](https://blockchainforeurope.eu/)
+[![Digital Asset](https://img.shields.io/badge/Digital%20Asset-Member-00A3E0?style=for-the-badge&logo=blockchain&logoColor=white)](https://www.digitalasset.com/)
+[![Crypto Finance Conference](https://img.shields.io/badge/Crypto%20Finance%20Conference-Member-4B8BBE?style=for-the-badge&logo=conference&logoColor=white)](https://cryptofinanceconference.com/)
+[![Global Blockchain Forum](https://img.shields.io/badge/Global%20Blockchain%20Forum-Member-00BFAE?style=for-the-badge&logo=blockchain&logoColor=white)](https://www.globalblockchainforum.com/)
+[![Fintech Connect](https://img.shields.io/badge/Fintech%20Connect-Member-0072B8?style=for-the-badge&logo=connect&logoColor=white)](https://www.fintechconnect.com/)
+[![International Finance Corporation](https://img.shields.io/badge/International%20Finance%20Corporation-Member-00A3E0?style=for-the-badge&logo=worldbank&logoColor=white)](https://www.ifc.org/)
+[![Digital Currency Group](https://img.shields.io/badge/Digital%20Currency%20Group-Member-4B8BBE?style=for-the-badge&logo=bitcoin&logoColor=white)](https://dcg.co/)
+[![Fintech Sandbox](https://img.shields.io/badge/Fintech%20Sandbox-Member-00BFAE?style=for-the-badge&logo=sandbox&logoColor=white)](https://fintechsandbox.org/)
+[![The Association for Financial Markets in Europe](https://img.shields.io/badge/The%20Association%20for%20Financial%20Markets%20in%20Europe-Member-0072B8?style=for-the-badge&logo=bank&logoColor=white)](https://www.afme.eu/)
+[![The World Bank](https://img.shields.io/badge/The%20World%20Bank-Member-00A3E0?style=for-the-badge&logo=worldbank&logoColor=white)](https://www.worldbank.org/)
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/quantum-pi-network">Quantum Pi</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
