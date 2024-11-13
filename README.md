@@ -1,2 +1,2 @@
 # quantum-pi-network
-A cutting-edge blockchain project aimed at launching the Quantum Pi mainnet, featuring Pi Coin as a stable digital currency valued at $314.159.
+A cutting-edge blockchain project aimed at launching the Quantum Pi mainnet, featuring Pi Coin as a stable digital currency valued at $314.159. This repository serves as the central hub for development, documentation, and collaboration on advanced cryptographic protocols, decentralized governance, and interoperability solutions within the Quantum Pi ecosystem. Join us in building the future of digital finance!
