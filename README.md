@@ -16,7 +16,6 @@
 [![Chainlink Verified Oracle Network](https://img.shields.io/badge/Chainlink-Verified%20Oracle%20Network-3498DB?style=for-the-badge&logo=chainlink&logoColor=white)](https://chain.link/)
 [![Ethereum Certified Developer](https://img.shields.io/badge/Ethereum-Certified%20Developer-3C3C3D?style=for-the-badge&logo=ethereum&logoColor=white)](https://ethereum.org/en/developers/docs/)
 [![Stanford Blockchain Research Center](https://img.shields.io/badge/Stanford-Blockchain%20Research%20Center-AE1B34?style=for-the-badge&logo=stanford&logoColor=white)](https://cyber.stanford.edu/blockchain)
-[![Stanford Blockchain Research Center](https://img.shields.io/badge/Stanford-Blockchain%20Research%20Center-AE1B34?style=for-the-badge&logo=stanford&logoColor=white)](https://cyber.stanford.edu/blockchain)
 [![Stanford Artificial Intelligence Laboratory](https://img.shields.io/badge/Stanford-Artificial%20Intelligence%20Laboratory-FF6F61?style=for-the-badge&logo=stanford&logoColor=white)](https://ai.stanford.edu/)
 [![Stanford Data Science](https://img.shields.io/badge/Stanford-Data%20Science-00BFFF?style=for-the-badge&logo=stanford&logoColor=white)](https://online.stanford.edu/courses/sohs-ystatslearning-2021)
 [![Stanford Machine Learning](https://img.shields.io/badge/Stanford-Machine%20Learning-FFCC00?style=for-the-badge&logo=stanford&logoColor=white)](https://www.coursera.org/learn/machine-learning)
