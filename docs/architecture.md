@@ -3,6 +3,10 @@
 ## Introduction
 The Quantum Pi platform is designed to provide a decentralized financial ecosystem powered by the Pi Coin. This document outlines the key components of the system architecture, including the blockchain layer, smart contracts, application layer, and user interfaces.
 
+## Quantum Pi Diagram
+
+![Quantum Pi Diagram](Quantum-Pi.jpeg) 
+
 ## Architecture Components
 
 ### 1. Blockchain Layer
