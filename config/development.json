@@ -1,0 +1,24 @@
+{
+    "network": {
+        "name": "localhost",
+        "url": "http://127.0.0.1:8545",
+        "chainId": 31337
+    },
+    "contracts": {
+        "Identity": "0xYourIdentityContractAddress",
+        "CrossChain": "0xYourCrossChainContractAddress",
+        "NFT": "0xYourNFTContractAddress"
+    },
+    "settings": {
+        "gasLimit": 3000000,
+        "gasPrice": "auto",
+        "enableLogging": true,
+        "logLevel": "debug",
+        "enableHotReload": true
+    },
+    "features": {
+        "enableMockServices": true,
+        "mockServiceUrl": "http://localhost:3000",
+        "enableTestCoverage": true
+    }
+}
