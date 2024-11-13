@@ -82,6 +82,9 @@
 [![International Finance Corporation](https://img.shields.io/badge/International%20Finance%20Corporation-Member-00A3E0?style=for-the-badge&logo=worldbank&logoColor=white)](https://www.ifc.org/)
 [![Digital Currency Group](https://img.shields.io/badge/Digital%20Currency%20Group-Member-4B8BBE?style=for-the-badge&logo=bitcoin&logoColor=white)](https://dcg.co/)
 [![Fintech Sandbox](https://img.shields.io/badge/Fintech%20Sandbox-Member-00BFAE?style=for-the-badge&logo=sandbox&logoColor=white)](https://fintechsandbox.org/)
+[![Fintech Innovation Lab](https://img.shields.io/badge/Fintech%20Innovation%20Lab-Member-00BFAE?style=for-the-badge&logo=innovation&logoColor=white)](https://www.fintechinnovationlab.com/)
+[![Global Fintech Hub Federation](https://img.shields.io/badge/Global%20Fintech%20Hub%20Federation-Member-4B8BBE?style=for-the-badge&logo=global&logoColor=white)](https://www.globalfintechhubfederation.org/)
+[![Fintech Association of Hong Kong](https://img.shields.io/badge/Fintech%20Association%20of%20Hong%20Kong-Member-0072B8?style=for-the-badge&logo=hongkong&logoColor=white)](https://www.fintech.org.hk/)
 [![The Association for Financial Markets in Europe](https://img.shields.io/badge/The%20Association%20for%20Financial%20Markets%20in%20Europe-Member-0072B8?style=for-the-badge&logo=bank&logoColor=white)](https://www.afme.eu/)
 [![The World Bank](https://img.shields.io/badge/The%20World%20Bank-Member-00A3E0?style=for-the-badge&logo=worldbank&logoColor=white)](https://www.worldbank.org/)
 
