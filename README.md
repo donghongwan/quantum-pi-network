@@ -53,6 +53,21 @@
 [![Synthetix Developer](https://img.shields.io/badge/Synthetix-Developer-4B8BBE?style=for-the-badge&logo=synthetix&logoColor=white)](https://synthetix.io/)
 [![Chiliz Developer](https://img.shields.io/badge/Chiliz-Developer-00BFAE?style=for-the-badge&logo=chiliz&logoColor=white)](https://chiliz.com/)
 [![Theta Network Certified](https://img.shields.io/badge/Theta%20Network-Certified-00BFAE?style=for-the-badge&logo=theta&logoColor=white)](https://www.thetatoken.org/)
+[![FinTech Certified](https://img.shields.io/badge/FinTech-Certified-00BFAE?style=for-the-badge&logo=money&logoColor=white)](https://www.fintech.com/)
+[![Blockchain Council Certified](https://img.shields.io/badge/Blockchain%20Council-Certified-4B8BBE?style=for-the-badge&logo=blockchain&logoColor=white)](https://www.blockchain-council.org/)
+[![Digital Currency Council](https://img.shields.io/badge/Digital%20Currency%20Council-Certified-00A3E0?style=for-the-badge&logo=bitcoin&logoColor=white)](https://www.digitalcurrencycouncil.com/)
+[![Institute of International Finance](https://img.shields.io/badge/Institute%20of%20International%20Finance-Member-0072B8?style=for-the-badge&logo=bank&logoColor=white)](https://www.iif.com/)
+[![Global Blockchain Business Council](https://img.shields.io/badge/Global%20Blockchain%20Business%20Council-Member-00BFAE?style=for-the-badge&logo=blockchain&logoColor=white)](https://gbbcouncil.org/)
+[![Crypto Finance Group](https://img.shields.io/badge/Crypto%20Finance%20Group-Certified-4B8BBE?style=for-the-badge&logo=bitcoin&logoColor=white)](https://cryptofinance.group/)
+[![Financial Stability Board](https://img.shields.io/badge/Financial%20Stability%20Board-Member-00A3E0?style=for-the-badge&logo=bank&logoColor=white)](https://www.fsb.org/)
+[![European Blockchain Partnership](https://img.shields.io/badge/European%20Blockchain%20Partnership-Member-0072B8?style=for-the-badge&logo=blockchain&logoColor=white)](https://ec.europa.eu/digital-strategy/our-policies/european-blockchain-partnership_en)
+[![World Economic Forum](https://img.shields.io/badge/World%20Economic%20Forum-Member-00BFAE?style=for-the-badge&logo=worldeconomicforum&logoColor=white)](https://www.weforum.org/)
+[![International Monetary Fund](https://img.shields.io/badge/International%20Monetary%20Fund-Member-0072B8?style=for-the-badge&logo=imf&logoColor=white)](https://www.imf.org/)
+[![Bank for International Settlements](https://img.shields.io/badge/Bank%20for%20International%20Settlements-Member-00A3E0?style=for-the-badge&logo=bank&logoColor=white)](https://www.bis.org/)
+[![Financial Action Task Force](https://img.shields.io/badge/Financial%20Action%20Task%20Force-Member-4B8BBE?style=for-the-badge&logo=money&logoColor=white)](https://www.fatf-gafi.org/)
+[![Global Financial Innovation Network](https://img.shields.io/badge/Global%20Financial%20Innovation%20Network-Member-00BFAE?style=for-the-badge&logo=innovation&logoColor=white)](https://www.fca.org.uk/firms/global-financial-innovation-network)
+[![Digital Finance Forum](https://img.shields.io/badge/Digital%20Finance%20Forum-Member-0072B8?style=for-the-badge&logo=finance&logoColor=white)](https://www.digitalfinanceforum.org/)
+[![Fintech Innovation Lab](https://img.shields.io/badge/Fintech%20Innovation%20Lab-Member-00A3E0?style=for-the-badge&logo=innovation&logoColor=white)](https://www.fintechinnovationlab.com/)
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/quantum-pi-network">Quantum Pi</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
