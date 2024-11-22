@@ -12,7 +12,7 @@
 [![ISO 22313](https://img.shields.io/badge/ISO%2022313-Guidance-00BFAE?style=for-the-badge&logo=iso&logoColor=white)](https://www.iso.org/iso-22313-business-continuity.html)
 [![ISO 50002](https://img.shields.io/badge/ISO%2050002-Guidance-0072B8?style=for-the-badge&logo=iso&logoColor=white)](https://www.iso.org/iso-50002-energy-management.html)
 [![ISO 19011](https://img.shields.io/badge/ISO%2019001-Guidance-00A3E0?style=for-the-badge&logo=iso&logoColor=white)](https://www.iso.org/iso-19011-auditing.html)
-[![Hyperledger Fabric Certified](https://img.shields.io/badge/Hyperledger%20Fabric-Certified-2C3E50?style=for-the-badge&logo=hyperledger&logoColor=white)](https://www.hyperledger.org/use/fabric)
+[![Hyperledger结构认证](https://img.shields.io/badge/Hyperledger%20Fabric-Certified-2C3E50?style=for-the-badge&logo=hyperledger&logoColor=white)](https://www.hyperledger.org/use/fabric)
 [![Chainlink Verified Oracle Network](https://img.shields.io/badge/Chainlink-Verified%20Oracle%20Network-3498DB?style=for-the-badge&logo=chainlink&logoColor=white)](https://chain.link/)
 [![Ethereum Certified Developer](https://img.shields.io/badge/Ethereum-Certified%20Developer-3C3C3D?style=for-the-badge&logo=ethereum&logoColor=white)](https://ethereum.org/en/developers/docs/)
 [![Stanford Blockchain Research Center](https://img.shields.io/badge/Stanford-Blockchain%20Research%20Center-AE1B34?style=for-the-badge&logo=stanford&logoColor=white)](https://cyber.stanford.edu/blockchain)
