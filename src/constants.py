@@ -1,6 +1,7 @@
 """
 Pi Coin Configuration Constants
 This module contains constants related to the Pi Coin cryptocurrency, designed to function as a global stablecoin with advanced features.
+Official Site: https://minepi.com
 """
 
 # Pi Coin Symbol
@@ -71,8 +72,8 @@ PI_COIN_STAKE_REWARD_RATE = 0.1  # Annual reward rate for staking
 PI_COIN_API_REQUEST_LIMIT = 5000  # Maximum API requests per hour
 PI_COIN_API_KEY_EXPIRATION = 1800  # API key expiration time in seconds
 
-# Pi _Coin Regulatory Compliance_
-PI_COIN_KYC_REQUIRED = True  # Whether KYC is required for transactions
+# Pi Coin Regulatory Compliance
+PI_COIN_KYC_REQUIRED = True  # Whether K YC is required for transactions
 PI_COIN_COMPLIANCE_JURISDICTIONS = ["US", "EU", "UK", "Global", "Asia", "Africa", "South America"]  # Expanded jurisdictions for compliance
 
 # Pi Coin Community Engagement
