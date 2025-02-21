@@ -70,10 +70,10 @@ PI_COIN_STAKE_REWARD_RATE = 0.1  # Annual reward rate for staking
 
 # Pi Coin API Rate Limits
 PI_COIN_API_REQUEST_LIMIT = 5000  # Maximum API requests per hour
-PI_COIN_API_KEY_EXPIRATION = 1800  # API key expiration time in seconds
+PI_COIN_API_KEY_EXPIRATION = 1800  # API key expiration time in seconds ```python
 
 # Pi Coin Regulatory Compliance
-PI_COIN_KYC_REQUIRED = True  # Whether K YC is required for transactions
+PI_COIN_KYC_REQUIRED = True  # Whether KYC is required for transactions
 PI_COIN_COMPLIANCE_JURISDICTIONS = ["US", "EU", "UK", "Global", "Asia", "Africa", "South America"]  # Expanded jurisdictions for compliance
 
 # Pi Coin Community Engagement
@@ -110,5 +110,9 @@ PI_COIN_GLOBAL_FINANCIAL_CONNECTIVITY = True  # Enable seamless integration with
 PI_COIN_AUTOMATED_CURRENCY_CONVERSION = True  # Automatic conversion between Pi Coin and other currencies
 PI_COIN_REAL_TIME_SETTLEMENTS = True  # Real-time settlement capabilities for transactions across borders
 PI_COIN_PARTNERSHIPS_WITH_FINANCIAL_INSTITUTIONS = ["World Bank", "IMF", "Central Banks", "Major Payment Processors"]  # Strategic partnerships for global reach
+
+# Pi Coin Ecosystem Integration
+PI_COIN_AUTO_CONNECT_TO_ECOSYSTEM = True  # Enable automatic connection to the entire Pi Network ecosystem
+PI_COIN_ECOSYSTEM_PARTNERS = ["Pi Network", "Pi Wallet", "Pi Apps", "Pi Marketplace"]  # List of ecosystem partners for integration
 
 # Additional constants can be added here as needed
