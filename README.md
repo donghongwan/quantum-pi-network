@@ -1,3 +1,5 @@
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/KOSASIH/quantum-pi-network/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/KOSASIH/quantum-pi-network/tree/main)
+
 [![ISO 20022](https://img.shields.io/badge/ISO%2020022-Compliant-0072B8?style=for-the-badge&logo=iso&logoColor=white)](https://www.iso20022.org/)
 [![ISO 27001](https://img.shields.io/badge/ISO%2027001-Certified-00A3E0?style=for-the-badge&logo=iso&logoColor=white)](https://www.iso.org/iso-27001-information-security.html)
 [![ISO 9001](https://img.shields.io/badge/ISO%209001-Certified-4B8BBE?style=for-the-badge&logo=iso&logoColor=white)](https://www.iso.org/iso-9001-quality-management.html)
