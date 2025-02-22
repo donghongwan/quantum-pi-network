@@ -11,27 +11,30 @@ async function connectToPiNetwork() {
             }
         });
         console.log('Connected to Pi Network:', response.data);
+        return true; // Return true if connected successfully
     } catch (error) {
         console.error('Error connecting to Pi Network:', error.message);
+        return false; // Return false if connection failed
     }
 }
 
-// Auto-reconnect logic
-async function autoReconnect(retries = 5) {
+// Auto-reconnect logic with retry mechanism
+async function autoReconnect(retries = 5, delay = 5000) {
     for (let i = 0; i < retries; i++) {
         console.log(`Attempting to connect to Pi Network... (Attempt ${i + 1})`);
-        await connectToPiNetwork();
-        // Wait before retrying
-        await new Promise(resolve => setTimeout(resolve, 5000));
-    }
-}
+        const isConnected = await connectToPiNetwork();
+        
+        if (isConnected) {
+            console.log('Successfully connected to Pi Network!');
+            return; // Exit if connected successfully
+        }
 
-// Monitor connection status
-setInterval(() => {
-    console.log('Checking connection status...');
-    // Logic to check connection status can be implemented here
-    // If disconnected, call autoReconnect()
-}, 60000); // Check every minute
+        // Wait before retrying
+        console.log(`Retrying in ${delay / 1000} seconds...`);
+        await new Promise(resolve => setTimeout(resolve, delay));
+    }
+    console.error('Failed to connect to Pi Network after multiple attempts.');
+}
 
 // Start the auto-reconnect process
 autoReconnect();
