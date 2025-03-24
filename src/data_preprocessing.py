@@ -10,45 +10,34 @@ def load_data(file_path):
     Load the dataset from a CSV file.
 
     Parameters:
-    file_path (str): The path to the CSV file.
+    - file_path: str, path to the CSV file.
 
     Returns:
-    pd.DataFrame: The loaded dataset.
+    - DataFrame containing the loaded data.
     """
     data = pd.read_csv(file_path)
     return data
 
-def handle_missing_values(data):
+def clean_data(data):
     """
-    Handle missing values in the dataset.
+    Clean the dataset by handling missing values and removing duplicates.
 
     Parameters:
-    data (pd.DataFrame): The input dataset.
+    - data: DataFrame, the raw data.
 
     Returns:
-    pd.DataFrame: The dataset with missing values handled.
+    - DataFrame, the cleaned data.
     """
-    # Example: Fill missing values with the mean of each column
-    for column in data.columns:
-        if data[column].isnull().any():
-            data[column].fillna(data[column].mean(), inplace=True)
-    return data
+    # Remove duplicates
+    data = data.drop_duplicates()
 
-def feature_engineering(data):
-    """
-    Perform feature engineering on the dataset.
+    # Handle missing values (example: fill with mean for numerical columns)
+    for column in data.select_dtypes(include=[np.number]).columns:
+        data[column].fillna(data[column].mean(), inplace=True)
 
-    Parameters:
-    data (pd.DataFrame): The input dataset.
+    # Alternatively, you can drop rows with missing values
+    # data.dropna(inplace=True)
 
-    Returns:
-    pd.DataFrame: The dataset with engineered features.
-    """
-    # Example: Create new features or transform existing ones
-    # Here, you can add any feature engineering logic as needed
-    # For instance, creating a new feature based on existing ones
-    # data['new_feature'] = data['feature1'] / data['feature2']
-    
     return data
 
 def preprocess_data(file_path):
@@ -56,35 +45,52 @@ def preprocess_data(file_path):
     Load and preprocess the dataset.
 
     Parameters:
-    file_path (str): The path to the CSV file.
+    - file_path: str, path to the CSV file.
 
     Returns:
-    pd.DataFrame: The preprocessed dataset.
+    - X: DataFrame, features for model training.
+    - y: Series, target variable for model training.
     """
     # Load the data
     data = load_data(file_path)
-    
-    # Handle missing values
-    data = handle_missing_values(data)
-    
-    # Perform feature engineering
-    data = feature_engineering(data)
-    
-    return data
 
-def scale_features(X_train, X_test):
+    # Clean the data
+    data = clean_data(data)
+
+    # Separate features and target variable
+    X = data.drop('price', axis=1)  # Assuming 'price' is the target variable
+    y = data['price']
+
+    # Optionally, encode categorical variables if any
+    X = pd.get_dummies(X, drop_first=True)
+
+    return X, y
+
+def scale_features(X):
     """
     Scale the features using StandardScaler.
 
     Parameters:
-    X_train (pd.DataFrame): The training features.
-    X_test (pd.DataFrame): The testing features.
+    - X: DataFrame, features to scale.
 
     Returns:
-    tuple: Scaled training and testing features.
+    - X_scaled: ndarray, scaled features.
     """
     scaler = StandardScaler()
-    X_train_scaled = scaler.fit_transform(X_train)
-    X_test_scaled = scaler.transform(X_test)
-    
-    return X_train_scaled, X_test_scaled
+    X_scaled = scaler.fit_transform(X)
+    return X_scaled
+
+def split_data(X, y, test_size=0.2, random_state=42):
+    """
+    Split the dataset into training and testing sets.
+
+    Parameters:
+    - X: DataFrame, features.
+    - y: Series, target variable.
+    - test_size: float, proportion of the dataset to include in the test split.
+    - random_state: int, random seed for reproducibility.
+
+    Returns:
+    - X_train, X_test, y_train, y_test: Split datasets.
+    """
+    return train_test_split(X, y, test_size=test_size, random_state=random_state)
