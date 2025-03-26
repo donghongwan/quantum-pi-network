@@ -32,7 +32,7 @@
   "license": "MIT and PiOS",
   "repository": {
     "type": "git",
-    "url": "https://github.com/KOSASIH/quantum-pi-network.git" // Replace with your actual repository URL
+    "url": "https://github.com/KOSASIH/quantum-pi-network.git"
   },
   "keywords": [
     "blockchain",
@@ -42,6 +42,6 @@
     "stablecoin"
   ],
   "bugs": {
-    "url": "https://github.com/KOSASIH/quantum-pi-network/issues" // Replace with your actual issues URL
+    "url": "https://github.com/KOSASIH/quantum-pi-network/issues"
   }
   }
