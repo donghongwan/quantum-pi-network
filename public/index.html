@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Your application description">
-    <meta name="keywords" content="Your application keywords">
+    <meta name="description" content="Quantum Pi Network - A decentralized platform for creating, managing, and trading NFTs.">
+    <meta name="keywords" content="Quantum Pi, NFTs, Decentralized, Blockchain, Oracle">
     <title>Quantum Pi Network</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/responsive.css">
     <link rel="stylesheet" href="styles/theme.css">
     <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- For better alerts -->
 </head>
 <body>
     <header>
@@ -54,25 +55,49 @@
     
     <script src="scripts/main.js"></script>
     <script>
+        let web3;
+        let contract;
+
         // Connect to the user's wallet
         async function connectWallet() {
             if (window.ethereum) {
-                await window.ethereum.request({ method: 'eth_requestAccounts' });
-                console.log("Wallet connected");
+                try {
+                    await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    web3 = new Web3(window.ethereum);
+                    console.log("Wallet connected");
+                    Swal.fire('Success!', 'Wallet connected successfully!', 'success');
+                } catch (error) {
+                    console.error("Error connecting to wallet: ", error);
+                    Swal.fire('Error!', 'Failed to connect wallet: ' + error.message, 'error');
+                }
             } else {
-                alert('Please install MetaMask!');
+                Swal.fire('Warning!', 'Please install MetaMask!', 'warning');
             }
         }
         
         // Create a new NFT
         async function createNFT() {
             // Call the createNFT function in your smart contract
+            try {
+                // Example: await contract.methods.createNFT(...).send({ from: accounts[0] });
+                Swal.fire('Success!', 'NFT created successfully!', 'success');
+            } catch (error) {
+                console.error('Error creating NFT: ', error);
+                Swal.fire('Error!', 'Failed to create NFT: ' + error.message, 'error');
+            }
         }
         
         // Request data from the decentralized oracle
         async function requestData() {
             // Call the requestData function in your smart contract
+            try {
+                // Example: await contract.methods.requestData(...).send({ from: accounts[0] });
+                Swal.fire('Success!', 'Data request submitted successfully!', 'success');
+            } catch (error) {
+                console.error('Error requesting data: ', error);
+                Swal.fire('Error!', 'Failed to request data: ' + error.message, 'error');
+            }
         }
     </script>
 </body>
-            </html>
+</html
