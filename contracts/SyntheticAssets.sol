@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 // Interface for price feed oracle
 interface IPriceFeed {
@@ -11,7 +12,7 @@ interface IPriceFeed {
 }
 
 // Synthetic Asset Contract
-contract SyntheticAssets is ERC20, Ownable {
+contract SyntheticAssets is ERC20, Ownable, ReentrancyGuard {
     using SafeMath for uint256;
 
     // Mapping of synthetic asset names to their underlying asset
@@ -22,6 +23,8 @@ contract SyntheticAssets is ERC20, Ownable {
     event SyntheticAssetCreated(string indexed name, address indexed underlyingAsset, uint256 collateralization);
     event SyntheticAssetMinted(string indexed name, address indexed to, uint256 amount);
     event SyntheticAssetBurned(string indexed name, address indexed from, uint256 amount);
+    event CollateralizationRatioUpdated(string indexed name, uint256 newCollateralization);
+    event EmergencyWithdraw(address indexed to, uint256 amount);
 
     constructor() ERC20("Synthetic Asset Token", "SAT") {}
 
@@ -42,8 +45,17 @@ contract SyntheticAssets is ERC20, Ownable {
         emit SyntheticAssetCreated(name, underlyingAsset, collateralization);
     }
 
+    // Update collateralization ratio
+    function updateCollateralizationRatio(string memory name, uint256 newCollateralization) external onlyOwner {
+        require(underlyingAssets[name] != address(0), "Asset does not exist");
+        require(newCollateralization > 100, "Collateralization must be greater than 100%");
+        
+        collateralizationRatio[name] = newCollateralization;
+        emit CollateralizationRatioUpdated(name, newCollateralization);
+    }
+
     // Mint synthetic assets
-    function mintSyntheticAsset(string memory name, uint256 amount) external {
+    function mintSyntheticAsset(string memory name, uint256 amount) external nonReentrant {
         require(underlyingAssets[name] != address(0), "Asset does not exist");
 
         uint256 price = IPriceFeed(priceFeeds[name]).getLatestPrice();
@@ -59,7 +71,7 @@ contract SyntheticAssets is ERC20, Ownable {
     }
 
     // Burn synthetic assets
-    function burnSyntheticAsset(string memory name, uint256 amount) external {
+    function burnSyntheticAsset(string memory name, uint256 amount) external nonReentrant {
         require(underlyingAssets[name] != address(0), "Asset does not exist");
 
         // Burn the synthetic assets
@@ -79,5 +91,12 @@ contract SyntheticAssets is ERC20, Ownable {
     function getCurrentPrice(string memory name) external view returns (uint256) {
         require(underlyingAssets[name] != address(0), "Asset does not exist");
         return IPriceFeed(priceFeeds[name]).getLatestPrice();
+    }
+
+    // Emergency withdraw function for owner
+    function emergencyWithdraw(address token, uint256 amount) external onlyOwner {
+        require(amount > 0, "Amount must be greater than 0");
+        ERC20 (token).transfer(msg.sender, amount);
+        emit EmergencyWithdraw(msg.sender, amount);
     }
 }
