@@ -2,22 +2,46 @@
   "name": "quantum-pi-network",
   "version": "1.0.0",
   "description": "A cutting-edge blockchain project aimed at launching the Quantum Pi mainnet, featuring Pi Coin as a stable digital currency valued at $314.159.",
-  "main": "index.js",
+  "main": "src/main/index.js",
   "scripts": {
     "start": "node src/main/index.js",
     "test": "jest",
-    "deploy": "node scripts/de ploy.js"
+    "deploy": "node scripts/deploy.js",
+    "lint": "eslint .",
+    "format": "prettier --write '**/*.{js,json,md}'",
+    "build": "webpack --config webpack.config.js",
+    "dev": "nodemon src/main/index.js"
   },
   "dependencies": {
     "express": "^4.17.1",
     "web3": "^1.5.0",
     "dotenv": "^8.2.0",
-    "quantum-sdk": "^1.0.0"
+    "quantum-sdk": "^1.0.0",
+    "axios": "^0.21.1", // Added for HTTP requests
+    "cors": "^2.8.5" // Added for handling CORS
   },
   "devDependencies": {
     "jest": "^26.6.0",
-    "eslint": "^7.11.0"
+    "eslint": "^7.11.0",
+    "prettier": "^2.2.1", // Added for code formatting
+    "nodemon": "^2.0.7", // Added for automatic server restarts
+    "webpack": "^5.24.2", // Added for module bundling
+    "webpack-cli": "^4.5.0" // Added for CLI commands
   },
   "author": "KOSASIH",
-  "license": "MIT and PiOS"
-}
+  "license": "MIT and PiOS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KOSASIH/quantum-pi-network.git" // Replace with your actual repository URL
+  },
+  "keywords": [
+    "blockchain",
+    "cryptocurrency",
+    "quantum",
+    "pi",
+    "stablecoin"
+  ],
+  "bugs": {
+    "url": "https://github.com/KOSASIH/quantum-pi-network/issues" // Replace with your actual issues URL
+  }
+  }
