@@ -1,21 +1,36 @@
 # Node.js dependencies
-node_modules/
+node_modules/          # Directory for Node.js packages
 
 # Environment variables
-.env
+.env                   # Environment variable file (contains sensitive information)
 
 # Build artifacts
-dist/
-build/
+dist/                  # Distribution directory for built files
+build/                 # Build directory for compiled assets
 
 # Logs
-logs/
-*.log
+logs/                  # Directory for application logs
+*.log                  # All log files
 
 # IDE specific files
-.vscode/
-.idea/
+.vscode/               # Visual Studio Code settings
+.idea/                 # JetBrains IDE settings
 
 # Quantum-specific files
-quantum_logs/
-quantum_results/
+quantum_logs/         # Directory for logs related to quantum processes
+quantum_results/      # Directory for results from quantum computations
+
+# Temporary files
+tmp/                   # Temporary files directory
+*.tmp                  # All temporary files
+
+# Operating system files
+.DS_Store              # macOS Finder metadata
+Thumbs.db             # Windows thumbnail cache
+
+# Coverage reports
+coverage/             # Directory for test coverage reports
+
+# Miscellaneous
+*.tgz                 # Compressed tar files
+*.zip                 # Compressed zip files
