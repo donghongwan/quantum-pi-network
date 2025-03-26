@@ -1,30 +1,54 @@
 {
     "network": {
-        "name": "mainnet",
-        "url": "https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID",
-        "chainId": 1
+        "ethereum": {
+            "name": "Ethereum Mainnet",
+            "url": "https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID",
+            "chainId": 1,
+            "timeout": 30000,  // Timeout for network requests in milliseconds
+            "retryAttempts": 5  // Number of retry attempts for failed requests
+        },
+        "stellar": {
+            "name": "Stellar Network",
+            "horizonUrl": "https://horizon.stellar.org", // Horizon API URL for Stellar
+            "networkPassphrase": "Public Global Stellar Network ; September 2015", // Stellar network passphrase
+            "timeout": 30000,  // Timeout for Stellar network requests
+            "retryAttempts": 5  // Number of retry attempts for Stellar requests
+        }
     },
     "contracts": {
         "Identity": "0xYourIdentityContractAddress",
         "CrossChain": "0xYourCrossChainContractAddress",
-        "NFT": "0xYourNFTContractAddress"
+        "NFT": "0xYourNFTContractAddress",
+        "Governance": "0xYourGovernanceContractAddress",  // Governance contract for decentralized decision-making
+        "Staking": "0xYourStakingContractAddress",  // Staking contract for incentivizing users
+        "PiCoin": "GYourPiCoinAccountAddress",  // Stellar account address for PiCoin
+        "GovernanceStellar": "GYourGovernanceAccountAddress"  // Stellar account address for Governance
     },
     "settings": {
         "gasLimit": 3000000,
-        "gasPrice": "20000000000", // 20 Gwei
-        "enableLogging": false,
-        "logLevel": "error",
+        "gasPrice": "20000000000",  // 20 Gwei
+        "enableLogging": true,  // Enable logging for debugging
+        "logLevel": "debug",  // Set log level to debug for detailed logs
         "enableMonitoring": true,
-        "monitoringServiceUrl": "https://monitoring.yourservice.com"
+        "monitoringServiceUrl": "https://monitoring.yourservice.com",
+        "enableOptimizations": true,  // Enable optimizations for contract deployment
+        "maxRetries": 3  // Maximum retries for transactions
     },
     "security": {
         "enableRateLimiting": true,
         "maxRequestsPerMinute": 100,
         "enableTwoFactorAuth": true,
-        "authServiceUrl": "https://auth.yourservice.com"
+        "authServiceUrl": "https://auth.yourservice.com",
+        "enableAuditLogging": true,  // Enable audit logging for security checks
+        "auditServiceUrl": "https://audit.yourservice.com"  // URL for the audit service
     },
     "features": {
         "enableDynamicFees": true,
-        "enableTransactionBatching": true
+        "enableTransactionBatching": true,
+        "enableNotifications": true,  // Enable notifications for important events
+        "enableMultiSig": true,  // Enable multi-signature for critical operations
+        "enableUpgradability": true,  // Enable contract upgradability for future enhancements
+        "enableStellarConfirmations": true,  // Enable confirmations for Stellar transactions
+        "stellarConfirmationTimeout": 60  // Timeout for Stellar confirmations in seconds
     }
-}
+        }
