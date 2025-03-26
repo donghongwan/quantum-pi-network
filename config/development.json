@@ -2,23 +2,45 @@
     "network": {
         "name": "localhost",
         "url": "http://127.0.0.1:8545",
-        "chainId": 31337
+        "chainId": 31337,
+        "timeout": 30000,  // Timeout for network requests
+        "retryAttempts": 5  // Number of retry attempts for failed requests
     },
     "contracts": {
         "Identity": "0xYourIdentityContractAddress",
         "CrossChain": "0xYourCrossChainContractAddress",
-        "NFT": "0xYourNFTContractAddress"
+        "NFT": "0xYourNFTContractAddress",
+        "Governance": "0xYourGovernanceContractAddress",  // Added governance contract for decentralized decision-making
+        "Staking": "0xYourStakingContractAddress"  // Added staking contract for incentivizing users
     },
     "settings": {
         "gasLimit": 3000000,
         "gasPrice": "auto",
         "enableLogging": true,
         "logLevel": "debug",
-        "enableHotReload": true
+        "enableHotReload": true,
+        "enableOptimizations": true,  // Enable optimizations for contract deployment
+        "maxRetries": 3  // Maximum retries for transactions
     },
     "features": {
         "enableMockServices": true,
         "mockServiceUrl": "http://localhost:3000",
-        "enableTestCoverage": true
+        "enableTestCoverage": true,
+        "enableAnalytics": true,  // Enable analytics for tracking user interactions
+        "enableNotifications": true,  // Enable notifications for important events
+        "enableMultiSig": true,  // Enable multi-signature for critical operations
+        "enableUpgradability": true  // Enable contract upgradability for future enhancements
+    },
+    "security": {
+        "enableAudit": true,  // Enable auditing for security checks
+        "auditServiceUrl": "http://localhost:4000",  // URL for the audit service
+        "enableRateLimiting": true,  // Enable rate limiting for API calls
+        "maxRequestsPerMinute": 100  // Limit the number of requests per minute
+    },
+    "api": {
+        "enableCors": true,  // Enable CORS for API requests
+        "allowedOrigins": ["http://localhost:3000"],  // Allowed origins for CORS
+        "apiVersion": "v1",  // API versioning
+        "enableDocumentation": true  // Enable API documentation
     }
-}
+    }
