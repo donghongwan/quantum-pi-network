@@ -4,45 +4,45 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Added
-- New feature for Quantum Key Distribution (QKD) implementation.
-- Integration with Stellar network for cross-chain transactions.
-- User guide documentation for navigating the platform.
+- **Quantum Key Distribution (QKD)**: Implemented a new feature for secure communication using quantum key distribution.
+- **Stellar Network Integration**: Enabled cross-chain transactions with the Stellar network for enhanced interoperability.
+- **User  Guide Documentation**: Comprehensive documentation to assist users in navigating the platform effectively.
 
 ### Changed
-- Updated the governance model to include new voting mechanisms.
-- Improved the performance of the analytics service.
+- **Governance Model Update**: Enhanced the governance model to include new voting mechanisms, improving community participation.
+- **Analytics Service Performance**: Optimized the performance of the analytics service for faster data processing and reporting.
 
 ### Fixed
-- Resolved a bug in the staking mechanism that caused incorrect rewards calculation.
-- Fixed UI issues in the Dashboard component.
+- **Staking Mechanism Bug**: Resolved a bug that caused incorrect rewards calculation in the staking mechanism, ensuring accurate user rewards.
+- **Dashboard UI Issues**: Fixed various UI issues in the Dashboard component for a smoother user experience.
 
 ---
 
 ## [1.0.0] - 2024-10-01
 ### Added
-- Initial release of the Quantum Pi Network.
-- Smart contracts for Pi Coin, Governance, and Staking.
-- Basic application structure with main logic, components, and services.
-- Unit tests for smart contracts and core application features.
-- Documentation for architecture and API reference.
+- **Initial Release**: Launched the Quantum Pi Network with foundational features.
+- **Smart Contracts**: Deployed smart contracts for Pi Coin, Governance, and Staking functionalities.
+- **Application Structure**: Established a basic application structure including main logic, components, and services.
+- **Unit Tests**: Implemented unit tests for smart contracts and core application features to ensure reliability.
+- **Documentation**: Provided detailed documentation for architecture and API reference.
 
 ### Changed
-- Refactored the `apiService.js` for better error handling.
-- Updated the README.md with installation instructions.
+- **API Service Refactor**: Refactored `apiService.js` for improved error handling and robustness.
+- **Updated README**: Enhanced the README.md with clear installation instructions and usage guidelines.
 
 ### Fixed
-- Fixed a critical bug in the token transfer logic in the PiCoin smart contract.
-- Resolved issues with the deployment script that caused failures in certain environments.
+- **Token Transfer Logic Bug**: Fixed a critical bug in the token transfer logic within the PiCoin smart contract to ensure accurate transactions.
+- **Deployment Script Issues**: Resolved issues in the deployment script that caused failures in certain environments, improving deployment reliability.
 
 ---
 
 ## [0.1.0] - 2024-09-15
 ### Added
-- Initial project setup with basic directory structure.
-- Placeholder files for documentation and smart contracts.
+- **Initial Project Setup**: Established the basic directory structure for the project.
+- **Placeholder Files**: Created placeholder files for documentation and smart contracts to guide future development.
 
 ---
 
 ## [0.0.1] - 2024-09-01
 ### Added
-- Project inception with initial ideas and planning.
+- **Project Inception**: Documented initial ideas and planning stages for the Quantum Pi Network project.
