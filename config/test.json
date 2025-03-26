@@ -2,24 +2,41 @@
     "network": {
         "name": "rinkeby",
         "url": "https://rinkeby.infura.io/v3/YOUR_INFURA_PROJECT_ID",
-        "chainId": 4
+        "chainId": 4,
+        "timeout": 30000,  // Timeout for network requests in milliseconds
+        "retryAttempts": 5  // Number of retry attempts for failed requests
     },
     "contracts": {
         "Identity": "0xYourIdentityContractAddress",
         "CrossChain": "0xYourCrossChainContractAddress",
-        "NFT": "0xYourNFTContractAddress"
+        "NFT": "0xYourNFTContractAddress",
+        "Governance": "0xYourGovernanceContractAddress",  // Added governance contract for decentralized decision-making
+        "Staking": "0xYourStakingContractAddress"  // Added staking contract for incentivizing users
     },
     "settings": {
         "gasLimit": 3000000,
-        "gasPrice": "10000000000", // 10 Gwei
+        "gasPrice": "10000000000",  // 10 Gwei
         "enableLogging": true,
-        "logLevel": "info",
-        "enableTestCoverage": true
+        "logLevel": "info",  // Set log level to info for general logging
+        "enableTestCoverage": true,
+        "enableOptimizations": true,  // Enable optimizations for contract deployment
+        "maxRetries": 3  // Maximum retries for transactions
     },
     "features": {
         "enableMockServices": true,
         "mockServiceUrl": "http://localhost:3000",
         "enableAutomatedTesting": true,
-        "testFramework": "mocha"
+        "testFramework": "mocha",  // Specify the testing framework
+        "enableNotifications": true,  // Enable notifications for important events
+        "enableMultiSig": true,  // Enable multi-signature for critical operations
+        "enableUpgradability": true  // Enable contract upgradability for future enhancements
+    },
+    "security": {
+        "enableRateLimiting": true,
+        "maxRequestsPerMinute": 100,
+        "enableTwoFactorAuth": true,
+        "authServiceUrl": "https://auth.yourservice.com",  // URL for the authentication service
+        "enableAuditLogging": true,  // Enable audit logging for security checks
+        "auditServiceUrl": "https://audit.yourservice.com"  // URL for the audit service
     }
-}
+    }
