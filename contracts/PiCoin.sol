@@ -32,6 +32,7 @@ contract PiCoin is Ownable, Pausable, AccessControl {
     event Minted(address indexed to, uint256 amount);
     event Burned(address indexed from, uint256 amount);
     event BalanceUpdated(address indexed account, uint256 newBalance);
+    event Transferred(address indexed from, address indexed to, uint256 amount);
 
     /**
      * @dev Constructor to initialize the contract and set up roles.
@@ -58,6 +59,7 @@ contract PiCoin is Ownable, Pausable, AccessControl {
      * @param amount The amount of PiCoins to mint.
      */
     function mint(address to, uint256 amount) external onlyMinter {
+        require(to != address(0), "Cannot mint to the zero address");
         balances[to] = balances[to].add(amount);
         emit Minted(to, amount);
         emit BalanceUpdated(to, balances[to]);
@@ -102,5 +104,38 @@ contract PiCoin is Ownable, Pausable, AccessControl {
      */
     function _beforeTokenTransfer(address from, address to, uint256 amount) internal whenNotPaused {
         require(from == address(0) || balances[from] >= amount, "Insufficient balance for transfer");
+        emit Transferred(from, to, amount);
+    }
+
+    /**
+     * @dev Assign the MINTER_ROLE to an address.
+     * @param account The address to assign the role to.
+     */
+    function assignMinter(address account) external onlyOwner {
+        grantRole(MINTER_ROLE, account);
+    }
+
+    /**
+     * @dev Revoke the MINTER_ROLE from an address.
+     * @param account The address to revoke the role from.
+     */
+    function revokeMinter(address account) external onlyOwner {
+        revokeRole(MINTER_ROLE, account);
+    }
+
+    /**
+     * @dev Assign the BURNER_ROLE to an address.
+     * @param account The address to assign the role to.
+     */
+    function assignBurner(address account) external onlyOwner {
+        grantRole(BURNER_ROLE, account);
+    }
+
+    /**
+     * @dev Revoke the BURNER_ROLE from an address.
+     * @param account The address to revoke the role from.
+     */
+    function revokeBurner(address account) external onlyOwner {
+        revokeRole(BURNER_ROLE, account);
     }
 }
