@@ -1,6 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+/**
+ * @title QuantumResistantMultiSigWallet
+ * @dev A multi-signature wallet that requires multiple owners to approve transactions.
+ */
 contract QuantumResistantMultiSigWallet {
     address[] public owners;
     mapping(address => bool) public isOwner;
@@ -12,6 +16,7 @@ contract QuantumResistantMultiSigWallet {
         bool executed;
         uint signatureCount;
         mapping(address => bool) signatures;
+        uint256 timestamp; // Timestamp for transaction expiration
     }
 
     Transaction[] public transactions;
@@ -19,9 +24,21 @@ contract QuantumResistantMultiSigWallet {
     event TransactionCreated(uint indexed transactionId, address indexed to, uint value);
     event TransactionExecuted(uint indexed transactionId);
     event TransactionSigned(uint indexed transactionId, address indexed signer);
+    event OwnerAdded(address indexed newOwner);
+    event OwnerRemoved(address indexed removedOwner);
 
     modifier onlyOwner() {
         require(isOwner[msg.sender], "Not an owner");
+        _;
+    }
+
+    modifier transactionExists(uint transactionId) {
+        require(transactionId < transactions.length, "Transaction does not exist");
+        _;
+    }
+
+    modifier notExecuted(uint transactionId) {
+        require(!transactions[transactionId].executed, "Transaction already executed");
         _;
     }
 
@@ -46,13 +63,13 @@ contract QuantumResistantMultiSigWallet {
         newTransaction.value = value;
         newTransaction.executed = false;
         newTransaction.signatureCount = 0;
+        newTransaction.timestamp = block.timestamp; // Set the timestamp for expiration
 
         emit TransactionCreated(transactionId, to, value);
     }
 
-    function signTransaction(uint transactionId) public onlyOwner {
+    function signTransaction(uint transactionId) public onlyOwner transactionExists(transactionId) notExecuted(transactionId) {
         Transaction storage transaction = transactions[transactionId];
-        require(!transaction.executed, "Transaction already executed");
         require(!transaction.signatures[msg.sender], "Transaction already signed");
 
         transaction.signatures[msg.sender] = true;
@@ -65,16 +82,39 @@ contract QuantumResistantMultiSigWallet {
         }
     }
 
-    function executeTransaction(uint transactionId) internal {
+    function executeTransaction(uint transactionId) internal transactionExists(transactionId) notExecuted(transactionId) {
         Transaction storage transaction = transactions[transactionId];
         require(transaction.signatureCount >= requiredSignatures, "Not enough signatures");
-        require(!transaction.executed, "Transaction already executed");
+        require(block.timestamp <= transaction.timestamp + 1 days, "Transaction has expired"); // 1 day expiration
 
         transaction.executed = true;
         (bool success, ) = transaction.to.call{value: transaction.value}("");
         require(success, "Transaction failed");
 
         emit TransactionExecuted(transactionId);
+    }
+
+    function addOwner(address newOwner) public onlyOwner {
+        require(newOwner != address(0), "Invalid owner");
+        require(!isOwner[newOwner], "Owner is not unique");
+        isOwner[newOwner] = true;
+        owners.push(newOwner);
+        emit OwnerAdded(newOwner);
+    }
+
+    function removeOwner(address ownerToRemove) public onlyOwner {
+        require(isOwner[ownerToRemove], "Not an owner");
+        isOwner[ownerToRemove] = false;
+
+        // Remove the owner from the owners array
+        for (uint i = 0; i < owners.length; i++) {
+            if (owners[i] == ownerToRemove) {
+                owners[i] = owners[owners.length - 1];
+                owners.pop();
+                break;
+            }
+        }
+        emit OwnerRemoved(ownerToRemove);
     }
 
     receive() external payable {}
