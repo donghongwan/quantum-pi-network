@@ -34,8 +34,12 @@ def main(action):
             adjust_supply(predictions)
             logging.info("Token supply adjusted based on predictions.")
 
+    except FileNotFoundError as fnf_error:
+        logging.error(f"File not found: {fnf_error}")
+    except ValueError as val_error:
+        logging.error(f"Value error: {val_error}")
     except Exception as e:
-        logging.error(f"An error occurred: {e}")
+        logging.error(f"An unexpected error occurred: {e}")
         raise  # Re-raise the exception for further handling if needed
 
 if __name__ == "__main__":
