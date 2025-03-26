@@ -72,9 +72,14 @@ let contract;
 window.onload = async () => {
     if (window.ethereum) {
         web3 = new Web3(window.ethereum);
-        await window.ethereum.request({ method: 'eth_requestAccounts' });
-        contract = new web3.eth.Contract(abi, contractAddress);
-        console.log("Web3 initialized and contract loaded.");
+        try {
+            await window.ethereum.request({ method: 'eth_requestAccounts' });
+            contract = new web3.eth.Contract(abi, contractAddress);
+            console.log("Web3 initialized and contract loaded.");
+        } catch (error) {
+            console.error("Error connecting to MetaMask: ", error);
+            alert('Error connecting to MetaMask: ' + error.message);
+        }
     } else {
         alert('Please install MetaMask!');
     }
@@ -85,20 +90,26 @@ async function requestData() {
     const query = document.getElementById('query').value;
     const accounts = await web3.eth.getAccounts();
     try {
-        await contract.methods.requestData(query).send({ from: accounts[0] });
+        const tx = await contract.methods.requestData(query).send({ from: accounts[0] });
+        console.log('Transaction successful:', tx);
         alert('Data request submitted successfully!');
     } catch (error) {
+        console.error('Error submitting request: ', error);
         alert('Error submitting request: ' + error.message);
     }
 }
 
 // Function to fulfill a data request
-async function fulfillData(requestId, result) {
+async function fulfillData() {
+    const requestId = document.getElementById('requestId').value;
+    const result = document.getElementById('result').value;
     const accounts = await web3.eth.getAccounts();
     try {
-        await contract.methods.fulfillData(requestId, result).send({ from: accounts[0] });
+        const tx = await contract.methods.fulfillData(requestId, result).send({ from: accounts[0] });
+        console.log('Transaction successful:', tx);
         alert('Data request fulfilled successfully!');
     } catch (error) {
+        console.error('Error fulfilling request: ', error);
         alert('Error fulfilling request: ' + error.message);
     }
 }
@@ -116,6 +127,7 @@ async function viewRequest() {
         `;
         document.getElementById('requestDetails').innerText = details;
     } catch (error) {
+        console.error('Error retrieving request: ', error);
         alert('Error retrieving request: ' + error.message);
     }
-}
+                        }
