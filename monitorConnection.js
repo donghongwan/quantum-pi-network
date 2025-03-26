@@ -13,13 +13,16 @@ async function connectToPiNetwork() {
         console.log('Connected to Pi Network:', response.data);
         return true; // Return true if connected successfully
     } catch (error) {
-        console.error('Error connecting to Pi Network:', error.message);
+        console.error('Error connecting to Pi Network:', error.response ? error.response.data : error.message);
         return false; // Return false if connection failed
     }
 }
 
 // Auto-reconnect logic with retry mechanism
-async function autoReconnect(retries = 5, delay = 5000) {
+async function autoReconnect(retries = process.env.RETRY_COUNT || 5, delay = process.env.RETRY_DELAY || 5000) {
+    retries = parseInt(retries, 10);
+    delay = parseInt(delay, 10);
+
     for (let i = 0; i < retries; i++) {
         console.log(`Attempting to connect to Pi Network... (Attempt ${i + 1})`);
         const isConnected = await connectToPiNetwork();
@@ -37,7 +40,9 @@ async function autoReconnect(retries = 5, delay = 5000) {
 }
 
 // Function to monitor connection status
-async function monitorConnection(interval = 10000) {
+async function monitorConnection(interval = process.env.MONITOR_INTERVAL || 10000) {
+    interval = parseInt(interval, 10);
+    
     setInterval(async () => {
         console.log('Checking connection status...');
         const isConnected = await connectToPiNetwork();
