@@ -1,84 +1,74 @@
-const SelfEvolvingContract = artifacts.require("SelfEvolvingContract");
+const { expect } = require("chai");
+const { ethers } = require("hardhat");
 
-contract("SelfEvolvingContract", (accounts) => {
+describe("SelfEvolvingContract", function () {
     let contract;
-    const [owner, proposer1, proposer2, voter1, voter2] = accounts;
-    const requiredVotes = 3;
+    let owner;
+    let addr1;
+    let addr2;
+    const requiredVotes = 2;
+    const proposalDuration = 60; // 60 seconds for testing
 
-    beforeEach(async () => {
-        contract = await SelfEvolvingContract.new(requiredVotes);
+    beforeEach(async function () {
+        [owner, addr1, addr2] = await ethers.getSigners();
+        const SelfEvolvingContract = await ethers.getContractFactory("SelfEvolvingContract");
+        contract = await SelfEvolvingContract.deploy(requiredVotes, proposalDuration);
+        await contract.deployed();
     });
 
-    it("should allow the owner to propose an update", async () => {
-        await contract.proposeUpdate("1.1", { from: proposer1 });
+    it("Should set the correct owner and initial version", async function () {
+        expect(await contract.owner()).to.equal(owner.address);
+        expect(await contract.currentVersion()).to.equal("1.0");
+    });
+
+    it("Should allow the owner to propose an update", async function () {
+        await contract.proposeUpdate("1.1");
         const proposals = await contract.getProposals();
-        assert.equal(proposals.length, 1, "Proposal was not added");
-        assert.equal(proposals[0], "1.1", "Proposal does not match");
+        expect(proposals).to.include("1.1");
     });
 
-    it("should not allow empty proposals", async () => {
-        try {
-            await contract.proposeUpdate("", { from: proposer1 });
-            assert.fail("Expected error not received");
-        } catch (error) {
-            assert(error.message.includes("Version cannot be empty"), "Error message does not match");
-        }
+    it("Should not allow non-owners to propose an update", async function () {
+        await expect(contract.connect(addr1).proposeUpdate("1.1")).to.be.revertedWith("Not the contract owner");
     });
 
-    it("should allow users to vote for a proposal", async () => {
-        await contract.proposeUpdate("1.1", { from: proposer1 });
-        await contract.voteForUpdate("1.1", { from: voter1 });
-        const votes = await contract.proposalVotes("1.1");
-        assert.equal(votes.toString(), "1", "Vote count should be 1");
+    it("Should allow users to vote for a proposal", async function () {
+        await contract.proposeUpdate("1.1");
+        await contract.connect(addr1).voteForUpdate("1.1");
+        await contract.connect(addr2).voteForUpdate("1.1");
+
+        expect(await contract.currentVersion()).to.equal("1.1");
     });
 
-    it("should not allow the same user to vote multiple times", async () => {
-        await contract.proposeUpdate("1.1", { from: proposer1 });
-        await contract.voteForUpdate("1.1", { from: voter1 });
-        try {
-            await contract.voteForUpdate("1.1", { from: voter1 });
-            assert.fail("Expected error not received");
-        } catch (error) {
-            assert(error.message.includes("You have already voted"), "Error message does not match");
-        }
+    it("Should not allow the same user to vote twice", async function () {
+        await contract.proposeUpdate("1.1");
+        await contract.connect(addr1).voteForUpdate("1.1");
+
+        await expect(contract.connect(addr1).voteForUpdate("1.1")).to.be.revertedWith("You have already voted");
     });
 
-    it("should execute the proposal when enough votes are received", async () => {
-        await contract.proposeUpdate("1.1", { from: proposer1 });
-        await contract.voteForUpdate("1.1", { from: voter1 });
-        await contract.voteForUpdate("1.1", { from: voter2 });
-        await contract.voteForUpdate("1.1", { from: proposer2 }); // This should trigger execution
+    it("Should expire proposals after the duration", async function () {
+        await contract.proposeUpdate("1.1");
+        await ethers.provider.send("evm_increaseTime", [proposalDuration + 1]); // Move time forward
+        await ethers.provider.send("evm_mine"); // Mine a new block
 
-        const currentVersion = await contract.currentVersion();
-        assert.equal(currentVersion, "1.1", "Version was not updated");
+        await expect(contract.expireProposal("1.1")).to.be.revertedWith("Proposal is still valid");
     });
 
-    it("should reset votes after execution", async () => {
-        await contract.proposeUpdate("1.1", { from: proposer1 });
-        await contract.voteForUpdate("1.1", { from: voter1 });
-        await contract.voteForUpdate("1.1", { from: voter2 });
-        await contract.voteForUpdate("1.1", { from: proposer2 });
+    it("Should allow the owner to expire a proposal", async function () {
+        await contract.proposeUpdate("1.1");
+        await ethers.provider.send("evm_increaseTime", [proposalDuration + 1]); // Move time forward
+        await ethers.provider.send("evm_mine"); // Mine a new block
 
-        const votesBefore = await contract.proposalVotes("1.1");
-        assert.equal(votesBefore.toString(), "3", "Vote count should be 3");
-
-        await contract.executeUpdate("1.1", { from: proposer1 });
-
-        const votesAfter = await contract.proposalVotes("1.1");
-        assert.equal(votesAfter.toString(), "0", "Vote count should be reset to 0");
+        await contract.expireProposal("1.1");
+        const proposals = await contract.getProposals();
+        expect(proposals).to.not.include("1.1");
     });
 
-    it("should not allow non-proposers to execute the proposal", async () => {
-        await contract.proposeUpdate("1.1", { from: proposer1 });
-        await contract.voteForUpdate("1.1", { from: voter1 });
-        await contract.voteForUpdate("1.1", { from: voter2 });
-        await contract.voteForUpdate("1.1", { from: proposer2 });
+    it("Should not allow voting on expired proposals", async function () {
+        await contract.proposeUpdate("1.1");
+        await ethers.provider.send("evm_increaseTime", [proposalDuration + 1]); // Move time forward
+        await ethers.provider.send("evm_mine"); // Mine a new block
 
-        try {
-            await contract.executeUpdate("1.1", { from: voter1 });
-            assert.fail("Expected error not received");
-        } catch (error) {
-            assert(error.message.includes("Not the proposer"), "Error message does not match");
-        }
+        await expect(contract.connect(addr1).voteForUpdate("1.1")).to.be.revertedWith("Proposal has expired");
     });
 });
