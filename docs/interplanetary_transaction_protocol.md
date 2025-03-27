@@ -140,3 +140,83 @@ class DTNNode:
 ## Conclusion
 
 The Interplanetary Transaction Protocol (ITP) is a sophisticated framework designed to handle the unique challenges of interplanetary transactions. By leveraging Delay-Tolerant Networking and robust transaction management, ITP ensures that transactions are processed reliably, even in the face of communication delays and disruptions. This implementation serves as a foundation for further enhancements and scalability in future interplanetary financial systems.
+
+## Getting Started
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- Python 3.7 or higher
+- pip (Python package installer)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/KOSASIH/quantum-pi-network.git
+   cd quantum-pi-network/interplanetary-transaction-protocol
+   ```
+
+2. Install the required dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Configuration
+
+1. Create a `.env` file in the root directory and set the necessary environment variables:
+
+   ```plaintext
+   SECRET_KEY=your_secret_key
+   DATABASE_URI=sqlite:///transactions.db
+   PORT=5000
+   ```
+
+2. Adjust the configuration settings in `app/config.py` as needed.
+
+### Running the Application
+
+To start the application, run:
+
+```bash
+python run.py
+```
+
+The application will start on the specified port (default is 5000).
+
+### API Endpoints
+
+- **POST /register**: Register a new user.
+- **POST /login**: Log in a user and receive a JWT token.
+- **POST /transaction**: Create a new transaction.
+- **GET /transactions**: Retrieve all transactions for the current user.
+
+### Testing
+
+To run the tests, execute:
+
+```bash
+pytest
+```
+
+### Documentation
+
+For detailed documentation on the Interplanetary Transaction Protocol, refer to the following file:
+
+- [Interplanetary Transaction Protocol Documentation](interplanetary_transaction_protocol.md)
+
+## Contributing
+
+Contributions are welcome! If you have suggestions for improvements or new features, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Inspired by the challenges of interplanetary communication and the future of space exploration.
+- Thanks to the open-source community for their invaluable contributions and support.
