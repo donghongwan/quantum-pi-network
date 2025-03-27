@@ -156,7 +156,7 @@ Before you begin, ensure you have the following installed:
 
    ```bash
    git clone https://github.com/KOSASIH/quantum-pi-network.git
-   cd quantum-pi-network/interplanetary-transaction-protocol
+   cd quantum-pi-network
    ```
 
 2. Install the required dependencies:
