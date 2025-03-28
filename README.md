@@ -126,6 +126,7 @@ Quantum Pi Network is a cutting-edge blockchain project aimed at launching the Q
 
 1. **Launch the Quantum Pi Mainnet**:
 - Successfully deploy the Quantum Pi mainnet, providing a robust and scalable blockchain infrastructure for users and developers.
+- Follow Quantum Pi Mainnet [Guidelines](docs/quantum_pi_mainnet_guidelines.md) 
 
 2. **Mint and Transfer Pi Coins**:
 - Enable users to mint new Pi Coins, facilitating the creation of digital assets.
