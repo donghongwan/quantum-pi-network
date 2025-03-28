@@ -1,4 +1,4 @@
-// quantumCrypto.js
+// main/quantumCrypto.js
 
 const crypto = require('crypto');
 
