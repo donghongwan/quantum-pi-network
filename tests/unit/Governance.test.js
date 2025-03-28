@@ -1,4 +1,4 @@
-// tests/unit/Governance.test.js
+// unit/Governance.test.js
 
 const { expect } = require('chai');
 const { ethers } = require('hardhat');
