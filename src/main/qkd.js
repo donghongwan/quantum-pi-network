@@ -1,4 +1,4 @@
-// qkd.js
+// main/qkd.js
 
 class QuantumKeyDistribution {
     constructor() {
