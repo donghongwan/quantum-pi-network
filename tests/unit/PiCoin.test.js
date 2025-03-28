@@ -1,4 +1,4 @@
-// tests/unit/PiCoin.test.js
+// unit/PiCoin.test.js
 
 const { expect } = require('chai');
 const { ethers } = require('hardhat');
