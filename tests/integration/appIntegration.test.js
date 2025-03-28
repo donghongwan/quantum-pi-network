@@ -1,4 +1,4 @@
-// integration/appIntegration.test.js
+// tests/integration/appIntegration.test.js
 
 const request = require('supertest');
 const app = require('../../src/main/index'); // Import your Express app
