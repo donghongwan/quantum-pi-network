@@ -1,4 +1,4 @@
-// src/main/config.js
+// main/config.js
 
 const dotenv = require('dotenv');
 
