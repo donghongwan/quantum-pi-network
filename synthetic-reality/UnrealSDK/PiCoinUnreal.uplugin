@@ -1,0 +1,34 @@
+{
+    "FileVersion": 3,
+    "Version": 1,
+    "VersionName": "1.0",
+    "FriendlyName": "Pi Coin Unreal SDK",
+    "Description": "SDK for integrating Pi Coin into Unreal Engine, enabling transactions in virtual environments.",
+    "Category": "Blockchain",
+    "CreatedBy": "Your Name",
+    "CreatedByURL": "https://yourwebsite.com",
+    "DocsURL": "https://yourdocumentation.com",
+    "MarketplaceURL": "https://yourmarketplace.com",
+    "SupportURL": "https://yoursupport.com",
+    "Modules": [
+        {
+            "Name": "PiCoinManager",
+            "Type": "Runtime",
+            "LoadingPhase": "Default",
+            "AdditionalDependencies": [
+                "Core",
+                "CoreUObject",
+                "Engine",
+                "InputCore",
+                "Json",
+                "JsonUtilities"
+            ]
+        }
+    ],
+    "Plugins": [
+        {
+            "Name": "Nethereum",
+            "Enabled": true
+        }
+    ]
+}
