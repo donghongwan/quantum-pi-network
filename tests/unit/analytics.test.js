@@ -1,4 +1,4 @@
-// tests/unit/analytics.test.js
+// unit/analytics.test.js
 
 const analyticsService = require('../../src/service/analyticsService');
 const axios = require('axios');
