@@ -1,4 +1,4 @@
-// src/main/utils/helpers.js
+// main/utils/helpers.js
 
 const Web3 = require('web3');
 const mongoose = require('mongoose');
