@@ -1,5 +1,7 @@
 import logging
+import random
 from network.node import Node
+from network.self_healing import SelfHealingMechanism
 
 class NetworkManager:
     """Manages the network and nodes in the Quantum-Pi Network."""
@@ -9,6 +11,7 @@ class NetworkManager:
         self.redundancy_level = redundancy_level
         self.nodes = [Node(node_id=i, redundancy_level=redundancy_level) for i in range(num_nodes)]
         self.active_nodes = []
+        self.self_healing_mechanism = SelfHealingMechanism(self)
 
     def initialize_network(self):
         """Initialize all nodes in the network."""
@@ -59,6 +62,10 @@ class NetworkManager:
             node.is_active = False
         logging.info("All nodes have been shut down.")
 
+    def trigger_self_healing(self):
+        """Trigger the self-healing mechanism to check and repair nodes."""
+        self.self_healing_mechanism.monitor_and_repair()
+
     def __str__(self):
         return f"NetworkManager with {self.num_nodes} nodes."
 
@@ -81,6 +88,9 @@ if __name__ == "__main__":
     # Get network status
     status = network_manager.get_network_status()
     logging.info(f"Network Status: {status}")
+
+    # Trigger self-healing
+    network_manager.trigger_self_healing()
 
     # Shutdown the network
     network_manager.shutdown_network()
