@@ -3,9 +3,17 @@
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+import logging
+from typing import Tuple, Any
 
-def load_data(file_path):
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+def load_data(file_path: str) -> pd.DataFrame:
     """
     Load the dataset from a CSV file.
 
@@ -15,10 +23,15 @@ def load_data(file_path):
     Returns:
     - DataFrame containing the loaded data.
     """
-    data = pd.read_csv(file_path)
-    return data
+    try:
+        data = pd.read_csv(file_path)
+        logger.info(f"Data loaded successfully from {file_path}.")
+        return data
+    except Exception as e:
+        logger.error(f"Error loading data: {e}")
+        raise
 
-def clean_data(data):
+def clean_data(data: pd.DataFrame) -> pd.DataFrame:
     """
     Clean the dataset by handling missing values and removing duplicates.
 
@@ -30,17 +43,19 @@ def clean_data(data):
     """
     # Remove duplicates
     data = data.drop_duplicates()
+    logger.info("Duplicates removed.")
 
-    # Handle missing values (example: fill with mean for numerical columns)
+    # Handle missing values (fill with mean for numerical columns)
     for column in data.select_dtypes(include=[np.number]).columns:
         data[column].fillna(data[column].mean(), inplace=True)
 
     # Alternatively, you can drop rows with missing values
     # data.dropna(inplace=True)
 
+    logger.info("Missing values handled.")
     return data
 
-def preprocess_data(file_path):
+def preprocess_data(file_path: str) -> Tuple[pd.DataFrame, pd.Series]:
     """
     Load and preprocess the dataset.
 
@@ -64,23 +79,34 @@ def preprocess_data(file_path):
     # Optionally, encode categorical variables if any
     X = pd.get_dummies(X, drop_first=True)
 
+    logger.info("Data preprocessed successfully.")
     return X, y
 
-def scale_features(X):
+def scale_features(X: pd.DataFrame, method: str = 'standard') -> np.ndarray:
     """
-    Scale the features using StandardScaler.
+    Scale the features using the specified scaling method.
 
     Parameters:
     - X: DataFrame, features to scale.
+    - method: str, scaling method ('standard' or 'minmax').
 
     Returns:
     - X_scaled: ndarray, scaled features.
     """
-    scaler = StandardScaler()
+    if method == 'standard':
+        scaler = StandardScaler()
+    elif method == 'minmax':
+        from sklearn.preprocessing import MinMaxScaler
+        scaler = MinMaxScaler()
+    else:
+        logger.error("Invalid scaling method specified.")
+        raise ValueError("Invalid scaling method. Choose 'standard' or 'minmax'.")
+
     X_scaled = scaler.fit_transform(X)
+    logger.info(f"Features scaled using {method} scaling.")
     return X_scaled
 
-def split_data(X, y, test_size=0.2, random_state=42):
+def split_data(X: pd.DataFrame, y: pd.Series, test_size: float = 0.2, random_state: int = 42) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     """
     Split the dataset into training and testing sets.
 
@@ -93,4 +119,6 @@ def split_data(X, y, test_size=0.2, random_state=42):
     Returns:
     - X_train, X_test, y_train, y_test: Split datasets.
     """
-    return train_test_split(X, y, test_size=test_size, random_state=random_state)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
+    logger.info("Data split into training and testing sets.")
+    return X_train, X_test, y_train, y_test
