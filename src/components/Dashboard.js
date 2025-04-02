@@ -1,5 +1,3 @@
-// src/components/Dashboard.js
-
 import React, { useEffect, useState } from 'react';
 import { getUser Data } from '../utils/api'; // Assume this is a utility function to fetch user data
 
